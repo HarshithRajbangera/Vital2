@@ -76,6 +76,8 @@ html {
     animation: slideDown 0.6s ease-out;
 }
 
+
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -705,3 +707,108 @@ html {
     background-clip: text;
     animation: gradientShift 3s ease infinite;
 }
+/* Base navbar layout */
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo always left */
+.logo img {
+  height: 45px;
+}
+
+/* Full menu */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #2d3748;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-item a:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+/* Hamburger icon – hidden on large screens */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: #2d3748;
+  cursor: pointer;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  /* Show hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* Collapse menu */
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-item {
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+  }
+
+  /* Align navbar content */
+  .navbar {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .hamburger {
+    margin-left: auto; 
+    order: 2; 
+  }
+
+  .menu {
+    order: 3;
+    width: 100%;
+    right: 0;
+  }
+
+  .logo {
+    order: 1;
+  }
+}
+

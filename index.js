@@ -1,20 +1,9 @@
-// Smooth Scroll to Anchors
-document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const section = document.querySelector(this.getAttribute('href'));
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
+// index.js
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.querySelector(".menu");
+
+  hamburger.addEventListener("click", function () {
+    menu.classList.toggle("show");
   });
 });
-
-// Hero Button Bounce on Hover
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('mouseenter', () => {
-    btn.style.animation = 'bounce 0.4s';
-    btn.addEventListener('animationend', () => btn.style.animation = '');
-  });
-});
-
-// Optional: Mobile Menu Toggle Logic (if needed)
